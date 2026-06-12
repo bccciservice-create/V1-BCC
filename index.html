@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BABY CASH COIN</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<section id="splashScreen" class="splash-screen">
+<div class="splash-card">
+<div class="splash-logo">BCC</div>
+<h1>Bienvenue sur BCC</h1>
+<div class="loader"></div>
+<p>powered by AmstrongBking</p>
+</div>
+</section>
+
+<section id="authWall" class="auth-wall hidden">
+<div class="auth-panel">
+<div class="brand-mark">BCC</div>
+<h1>BABY CASH COIN</h1>
+<p class="auth-subtitle">Connexion securisee</p>
+
+<div class="auth-tabs">
+<button id="showLoginBtn" class="auth-tab active">Connexion</button>
+<button id="showRegisterBtn" class="auth-tab">Inscription</button>
+</div>
+
+<form id="loginForm" class="auth-form">
+<input id="loginEmail" type="email" placeholder="Adresse email" required>
+<input id="loginPassword" type="password" placeholder="Mot de passe" required>
+<label class="check-row">
+<input id="rememberLogin" type="checkbox">
+<span>Memoriser mes infos</span>
+</label>
+<button class="main-btn" type="submit">Se connecter</button>
+<button class="outline-btn" id="forgotPasswordBtn" type="button">Mot de passe oublie ?</button>
+<button class="outline-btn" id="languageBtn" type="button"><i class="fa-solid fa-language"></i> Choisir langue</button>
+<p id="selectedLanguageText" class="mini-status">Langue : Francais</p>
+</form>
+
+<form id="registerForm" class="auth-form hidden">
+<div class="form-grid">
+<input id="regFirstName" placeholder="Prenom" required>
+<input id="regLastName" placeholder="Nom" required>
+</div>
+<input id="regEmail" type="email" placeholder="Adresse mail" required>
+<input id="regEmailConfirm" type="email" placeholder="Confirmer adresse mail" required>
+<input id="regPassword" type="password" placeholder="Mot de passe" required>
+<input id="regPasswordConfirm" type="password" placeholder="Confirmer mot de passe" required>
+<input id="regPin" type="password" maxlength="6" inputmode="numeric" placeholder="PIN 6 chiffres" required>
+<input id="regMobileMoney" type="tel" inputmode="tel" placeholder="Numero Mobile Money pour les retraits" required>
+<input id="regOtp" type="text" maxlength="6" inputmode="numeric" placeholder="Code OTP recu par SMS" required>
+<select id="regCurrency" required>
+<option value="">Choisir devise</option>
+<option value="XOF">FCFA BCEAO (XOF)</option>
+<option value="XAF">FCFA CEMAC (XAF)</option>
+<option value="EUR">Euro (EUR)</option>
+<option value="USD">Dollar US (USD)</option>
+<option value="GBP">Livre sterling (GBP)</option>
+<option value="CAD">Dollar canadien (CAD)</option>
+<option value="NGN">Naira (NGN)</option>
+<option value="GHS">Cedi (GHS)</option>
+<option value="MAD">Dirham marocain (MAD)</option>
+</select>
+<input id="regBirthDate" type="date" required>
+
+<button id="requestLocationBtn" class="outline-btn" type="button">
+<i class="fa-solid fa-location-dot"></i>
+Autoriser ma position
+</button>
+<p id="locationStatus" class="mini-status">Position obligatoire pour finaliser l'inscription.</p>
+
+<div class="rules-box">
+<button class="rules-toggle" id="rulesToggleBtn" type="button">
+<strong>Regles et confidentialite</strong>
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+<p id="rulesText" class="hidden">En creant un compte BABY CASH COIN, vous acceptez les regles de securite, la verification par position, les controles anti-fraude, la validation KYC, les limites de retrait, les notifications importantes et le traitement confidentiel de vos donnees selon les besoins du service.</p>
+<label>
+<input id="acceptRules" type="checkbox">
+J'accepte les regles et la confidentialite BABY CASH COIN.
+</label>
+</div>
+
+<button class="main-btn" type="submit">Valider mon inscription</button>
+</form>
+</div>
+</section>
+
+<main id="userDashboard" class="app hidden">
+<header class="header">
+<div>
+<h1 id="userWelcome">BABY CASH COIN</h1>
+<div class="top-level">
+<button class="badge" id="levelBadge">ðŸ¥‰ Bronze</button>
+<div class="xp-box">
+<div class="xp-text">
+<span id="levelName">Niveau 1</span>
+<span id="levelPercent">0%</span>
+</div>
+<div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
+</div>
+</div>
+</div>
+<div class="header-right">
+<button class="theme-btn" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+<button class="notif-btn"><i class="fa-regular fa-bell"></i><span id="notifCountBadge" class="notif-count hidden">0</span></button>
+<div class="bcc-logo"><div class="bcc-inner">BCC</div></div>
+</div>
+</header>
+
+<section id="homeSection" class="page active-page">
+<div class="future-box">
+<div class="future-title">BCC FUTURE</div>
+<div class="future-scroll">
+<div class="future-track">
+<span>Bienvenue dans BABY CASH COIN</span>
+<span>Votre avenir numerique commence ici</span>
+<span>Gagnez des recompenses BCC</span>
+<span>Systeme securise nouvelle generation</span>
+<span>DANGER : si nous suspectons que votre position est fausse ou que vous trichez dans les missions, vous serez banni sans preavis</span>
+</div>
+</div>
+</div>
+
+<div class="balance-card glow-card">
+<button class="eye-btn" id="toggleBalance"><i class="fa-regular fa-eye"></i></button>
+<p class="balance-title">Solde principal</p>
+<div class="balance-main">
+<h2 id="balanceText">0</h2>
+<span>BCC</span>
+</div>
+<div class="cfa-box">
+<p>1 BCC = 1 FCFA</p>
+<div class="cfa-live">
+<h3 id="cfaText">â‰ˆ 0 FCFA</h3>
+<div class="live-dot"></div>
+</div>
+</div>
+</div>
+
+<div class="actions">
+<button class="action-btn" id="sendBtn">
+<div class="action-circle"><i class="fa-solid fa-paper-plane"></i></div>
+<span>Envoyer</span>
+</button>
+<button class="action-btn" id="receiveBtn">
+<div class="action-circle"><i class="fa-solid fa-download"></i></div>
+<span>Recevoir</span>
+</button>
+<button class="action-btn" id="scanBtn">
+<div class="action-circle"><i class="fa-solid fa-qrcode"></i></div>
+<span>Scanner</span>
+</button>
+<button class="action-btn" id="convertBtn">
+<div class="action-circle"><i class="fa-solid fa-repeat"></i></div>
+<span>Convertir</span>
+</button>
+</div>
+
+<div class="history-box">
+<div class="history-icon">Historique</div>
+<h3 id="historyTitle">Aucune transaction</h3>
+<p id="historyEmptyText">Les activites apparaitront ici</p>
+<div class="history-list" id="transactionHistory"></div>
+<button class="outline-btn hidden" id="historyMoreBtn" type="button">Voir plus</button>
+</div>
+</section>
+
+<section id="rewardSection" class="page">
+<div class="reward-header">
+<h2>Recompenses BCC</h2>
+<div class="reward-balance" id="rewardBalance">0 BCC</div>
+<button class="main-btn" id="transferRewardBtn">Envoyer mes recompenses</button>
+</div>
+<div class="scratch-card">
+<h3>Roue cadeau BCC</h3>
+<div class="spin-wheel-area" id="spinWheelCard"><div class="wheel-shell"><div class="wheel-pointer"></div><div class="spin-wheel" id="spinWheel"></div><button class="wheel-center" id="spinWheelBtn" type="button">TOURNER</button></div></div>
+<p class="reward-countdown" id="rewardCountdown"></p>
+</div>
+</section>
+
+<section id="missionSection" class="page">
+<div class="mission-box">
+<div class="section-head">
+<h2>MISSIONS</h2>
+<span id="missionMaintenanceBadge" class="status-badge hidden">Maintenance</span>
+</div>
+<div id="missionMaintenanceMessage" class="maintenance-message hidden">
+La section mission est temporairement en maintenance.
+</div>
+<div id="missionList"></div>
+</div>
+</section>
+
+<section id="settingsSection" class="page">
+<div class="settings-container">
+<div class="settings-card">
+<h2>SOLDE & PLAFOND</h2>
+<p>Principal : <span id="settingsMainBalance">0</span> BCC</p>
+<p>Recompense : <span id="settingsRewardBalance">0</span> BCC</p>
+<p>Plafond non verifie : 600 000 BCC/mois</p>
+<p>Compte verifie : 1 500 000 BCC/mois</p>
+<p>Utilise : <span id="settingsUsedBalance">0</span> BCC</p>
+</div>
+
+<div class="settings-card">
+<h2>KYC</h2>
+<input type="file" id="kycUpload" class="hidden" multiple>
+<button class="main-btn" id="startKycBtn">Valider mon identite</button>
+<p id="kycStatus" class="kyc-status hidden"></p>
+</div>
+
+<div class="settings-card">
+<h2>SECURITE</h2>
+<button class="security-btn" id="changePinBtn">Modifier PIN</button>
+<button class="security-btn" id="changeEmailBtn">Modifier Email</button>
+<button class="security-btn" id="changePasswordBtn">Changer Mot de Passe</button>
+</div>
+
+<div class="settings-card">
+<h2>MISSIONS</h2>
+<p><span id="missionValidated">0</span> validees</p>
+<p><span id="missionPending">0</span> en attente</p>
+<p><span id="missionRejected">0</span> refusee</p>
+<p>Total gagne : <span id="missionEarned">0</span> BCC</p>
+</div>
+
+<div class="settings-card">
+<h2>ASSISTANCE EN LIGNE</h2>
+<textarea id="supportRequestText" placeholder="Ecrivez votre requete au service assistance"></textarea>
+<button class="main-btn" id="sendSupportRequestBtn">Envoyer la requete</button>
+<div id="supportRequestList" class="support-request-list"></div>
+</div>
+
+<div class="settings-card">
+<h2>COMPTE</h2>
+<p>ID unique : <span id="userUniqueId">-</span></p>
+<p>Email : <span id="settingsEmail">-</span></p>
+<p>Role : Utilisateur</p>
+</div>
+</div>
+
+<div class="settings-actions">
+<a class="contact-btn" href="mailto:bccciservice@gmail.com">Nous contacter</a>
+<button class="logout-btn" id="logoutBtn">Deconnecter</button>
+</div>
+</section>
+
+<nav class="bottom-nav">
+<button class="nav-item active-nav" data-page="homeSection">
+<i class="fa-solid fa-house"></i><span>Accueil</span>
+</button>
+<button class="nav-item" data-page="rewardSection">
+<i class="fa-solid fa-gift"></i><span>Recompense</span>
+</button>
+<button class="center-btn" id="dailyMissionBtn">
+<div class="center-inner"><div class="center-scroll"><span>MISSION DU JOUR</span></div></div>
+</button>
+<button class="nav-item" data-page="missionSection">
+<i class="fa-solid fa-chart-line"></i><span>Missions</span>
+</button>
+<button class="nav-item" data-page="settingsSection">
+<i class="fa-regular fa-user"></i><span>Parametres</span>
+</button>
+</nav>
+</main>
+
+<main id="adminDashboard" class="admin-app hidden">
+<aside class="admin-sidebar">
+<div class="admin-brand">BCC ADMIN</div>
+<p id="adminRoleText">Admin</p>
+<button class="admin-nav active" data-admin-page="adminOverview">Vue globale</button>
+<button class="admin-nav" data-admin-page="adminMissions">Missions</button>
+<button class="admin-nav" data-admin-page="adminRewards">Carte cadeau</button>
+<button class="admin-nav" data-admin-page="adminKyc">KYC</button>
+<button class="admin-nav" data-admin-page="adminUsers">Utilisateurs</button>
+<button class="admin-nav" data-admin-page="adminFinance">Finance</button>
+<button class="admin-nav" data-admin-page="adminNotifications">Notifications</button>
+<button class="admin-nav" data-admin-page="adminSupport">Assistance</button>
+<button class="admin-nav" data-admin-page="adminSettings">Parametres</button>
+<button class="logout-btn" id="adminLogoutBtn">Deconnecter</button>
+</aside>
+
+<section class="admin-content">
+<div id="adminOverview" class="admin-page active-admin-page">
+<h1>Mur admin principal</h1>
+<div class="admin-grid">
+<div class="admin-card"><span>Utilisateurs</span><strong id="adminUserCount">0</strong></div>
+<div class="admin-card"><span>En ligne</span><strong id="adminOnlineCount">0</strong></div>
+<div class="admin-card"><span>BCC entrants</span><strong id="adminIncomingBcc">0</strong></div>
+<div class="admin-card"><span>BCC sortants</span><strong id="adminOutgoingBcc">0</strong></div>
+<div class="admin-card"><span>Transactions</span><strong id="adminTransactionCount">0</strong></div>
+<div class="admin-card"><span>Missions en attente</span><strong id="adminPendingMissionCount">0</strong></div>
+<div class="admin-card"><span>Missions acceptees</span><strong id="adminAcceptedMissionCount">0</strong></div>
+<div class="admin-card"><span>Missions refusees</span><strong id="adminRejectedMissionCount">0</strong></div>
+<div class="admin-card"><span>KYC en attente</span><strong id="adminPendingKycCount">0</strong></div>
+<div class="admin-card"><span>Assistance ouvertes</span><strong id="adminOpenSupportCount">0</strong></div>
+<div class="admin-card"><span>Assistance cloturees</span><strong id="adminClosedSupportCount">0</strong></div>
+<div class="admin-card main-admin-only"><span>Frais BCC appli</span><strong id="adminFeesBalance">0</strong></div>
+<div class="admin-card main-admin-only"><span>Pool recompense</span><strong id="adminRewardPoolView">0</strong></div>
+</div>
+<div class="admin-card wide main-admin-only">
+<h2>Retirer les frais BCC de l'application</h2>
+<div class="admin-inline-form">
+<input id="adminFeeWithdrawNumber" type="tel" placeholder="Numero Mobile Money admin principal">
+<input id="adminFeeWithdrawAmount" type="number" placeholder="Montant BCC">
+<button class="main-btn" id="adminWithdrawFeesBtn">Retirer</button>
+</div>
+</div>
+<div class="admin-card wide">
+<h2>Activites recentes</h2>
+<div id="adminActivityList" class="admin-list"></div>
+</div>
+</div>
+
+<div id="adminMissions" class="admin-page">
+<h1>Gestion missions</h1>
+<div class="admin-form">
+<input id="adminMissionTitle" placeholder="Titre mission">
+<textarea id="adminMissionLink" placeholder="Colle 1 ou plusieurs liens de missions, un lien par ligne"></textarea>
+<input id="adminMissionGain" type="number" placeholder="Gain BCC">
+<input id="adminMissionDuration" placeholder="Heure / duree">
+<input id="adminMissionImage" type="file" accept="image/*">
+<select id="adminMissionValidation">
+<option value="manual">Validation manuelle avec preuve</option>
+<option value="auto">Validation directe</option>
+</select>
+<select id="adminMissionQueueTarget">
+<option value="active">Publier maintenant</option>
+<option value="queue">Mettre en file d'attente</option>
+</select>
+<textarea id="adminMissionConditions" placeholder="Conditions"></textarea>
+<button class="main-btn" id="saveMissionBtn">Ajouter mission</button>
+</div>
+<input class="admin-search" id="adminMissionSearch" placeholder="Rechercher une mission ou une preuve">
+<div id="adminMissionList" class="admin-list"></div>
+</div>
+
+<div id="adminRewards" class="admin-page">
+<h1>Gestion carte cadeau</h1>
+<div class="admin-form">
+<input id="adminRewardGains" placeholder="Segments roue, ex: 0,X2,50,100,200,300,500">
+<input id="adminRewardPool" type="number" placeholder="Somme globale BCC a distribuer">
+<input id="adminDailyText" placeholder="Texte du bouton central">
+<input id="adminDailyImage" placeholder="Lien image du bouton central">
+<input id="adminDailyMediaFiles" type="file" accept="image/*,video/*" multiple>
+<select id="adminDailyMediaDirection">
+<option value="forward">Defilage devant</option>
+<option value="backward">Defilage derriere</option>
+</select>
+<button class="main-btn" id="saveRewardSettingsBtn">Enregistrer</button>
+</div>
+<div id="adminRewardMediaPreview" class="reward-media-preview"></div>
+</div>
+
+<div id="adminKyc" class="admin-page">
+<h1>Validation KYC</h1>
+<input class="admin-search" id="adminKycSearch" placeholder="Rechercher KYC, email, fichier">
+<div id="adminKycList" class="admin-list"></div>
+</div>
+
+<div id="adminUsers" class="admin-page">
+<h1>Utilisateurs</h1>
+<input class="admin-search" id="adminUserSearch" placeholder="Rechercher utilisateur, email, numero, position">
+<div id="adminUserList" class="admin-list"></div>
+</div>
+
+<div id="adminFinance" class="admin-page">
+<h1>Finance et transactions</h1>
+<input class="admin-search" id="adminFinanceSearch" placeholder="Rechercher transaction perdue, retrait, email, ID">
+<div id="adminFinanceList" class="admin-list"></div>
+</div>
+
+<div id="adminNotifications" class="admin-page">
+<h1>Notifications users</h1>
+<div class="admin-form">
+<select id="adminNotificationTarget">
+<option value="all">Tous les utilisateurs</option>
+<option value="sensitive">Transactions sensibles</option>
+</select>
+<input id="adminNotificationTitle" placeholder="Titre notification">
+<textarea id="adminNotificationMessage" placeholder="Message a envoyer aux users"></textarea>
+<button class="main-btn" id="sendAdminNotificationBtn">Envoyer notification</button>
+</div>
+<div id="adminNotificationList" class="admin-list"></div>
+</div>
+
+<div id="adminSupport" class="admin-page">
+<h1>Requetes assistance</h1>
+<input class="admin-search" id="adminSupportSearch" placeholder="Rechercher requete, email, statut">
+<div id="adminSupportList" class="admin-list"></div>
+</div>
+
+<div id="adminSettings" class="admin-page">
+<h1>Parametres admin</h1>
+<label class="switch-row">
+<input id="missionMaintenanceToggle" type="checkbox">
+<span>Mode maintenance ON/OFF pour la section mission</span>
+</label>
+<div class="admin-form">
+<textarea id="maintenanceMessageInput" placeholder="Message de maintenance visible dans l'application"></textarea>
+<button class="main-btn" id="saveMaintenanceMessageBtn">Enregistrer maintenance</button>
+</div>
+<div class="admin-card wide">
+<h2>Changer mon mot de passe admin</h2>
+<div class="admin-form">
+<input id="adminOldPassword" type="password" placeholder="Ancien mot de passe admin">
+<input id="adminNewPassword" type="password" placeholder="Nouveau mot de passe admin">
+<button class="main-btn" id="changeAdminPasswordBtn">Enregistrer mon mot de passe</button>
+</div>
+</div>
+<div class="admin-card wide main-admin-only">
+<h2>Creer un admin</h2>
+<div class="admin-form">
+<input id="newAdminName" placeholder="Nom admin">
+<input id="newAdminEmail" type="email" placeholder="Email admin">
+<input id="newAdminPassword" type="password" placeholder="Mot de passe admin">
+<select id="newAdminRole">
+<option value="admin_missions">Admin Missions</option>
+<option value="admin_rewards">Admin Recompenses</option>
+<option value="admin_kyc">Admin KYC</option>
+<option value="admin_support">Admin Support</option>
+<option value="admin_finance">Admin Finance</option>
+<option value="custom_admin">Admin personnalise</option>
+</select>
+<label class="switch-row"><input type="checkbox" class="new-admin-permission" value="missions"><span>Missions</span></label>
+<label class="switch-row"><input type="checkbox" class="new-admin-permission" value="rewards"><span>Roue cadeau</span></label>
+<label class="switch-row"><input type="checkbox" class="new-admin-permission" value="kyc"><span>KYC</span></label>
+<label class="switch-row"><input type="checkbox" class="new-admin-permission" value="users"><span>Utilisateurs</span></label>
+<label class="switch-row"><input type="checkbox" class="new-admin-permission" value="finance"><span>Finance</span></label>
+<label class="switch-row"><input type="checkbox" class="new-admin-permission" value="notifications"><span>Notifications</span></label>
+<label class="switch-row"><input type="checkbox" class="new-admin-permission" value="support"><span>Assistance</span></label>
+<label class="switch-row"><input type="checkbox" class="new-admin-permission" value="maintenance"><span>Parametres</span></label>
+<button class="main-btn" id="createAdminBtn">Creer admin</button>
+</div>
+</div>
+<div class="admin-card wide">
+<h2>Comptes sous-admins</h2>
+<div id="subAdminList" class="admin-list"></div>
+</div>
+</div>
+</section>
+</main>
+
+<div class="modal" id="mainModal">
+<div class="modal-content" id="modalContent"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
